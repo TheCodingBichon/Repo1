@@ -1,0 +1,113 @@
+Zadanie 1.
+
+mkdir repozytoriaGIT
+cd repozytoriaGit
+mkdir Repoz1
+cd Repoz1
+git init
+touch .gitignore readme.md one.sh two.sh
+git status
+git add one.sh
+git status
+git add .
+git status
+git commit -m "pierwsza zmiana"
+git log
+
+Zadanie 2.
+
+-->edycja pliku - VSC<--
+git status - zmodyfikowany one.sh
+-> wpisanie z poziomu VSC nazwę one.sh do redme
+git add one.sh two.sh readme.md
+git commit -m "druga zmiana"
+git commit --amend -m "pierwsza modyfikacja pliku one.sh"
+git log
+
+Zadanie 3.
+
+git branch mytest1
+git checkout mytest1
+--> modyfikacja pliku z poziomu VSC <--
+git status - modified: one.sh
+git stash
+git log
+git checkout master
+git checkout -b newversion
+-->modyfikacja pliku z poziomu VSC<--
+git commit -a -m "wprowadzenie loginu"
+git log
+git checkout master
+git log -> nie widzimy wersji z wprowadzonym loginem
+git merge newversion
+git branch -d newversion
+
+Zadanie 4.
+
+git checkout mytest1
+git stash pop
+--> modyfikacja one.sh <--
+git commit -a -m "powrot do stash"
+git checkout master
+git merge mytest1 -> Konflikt
+-> usunięcie konfliktu z poziomu VSC
+git add .
+git commit -m "usunięcie konfliktu"
+git branch -d mytest1
+-> sprawdzenie pliku: 
+	Zadanie 3 - edycja - login użytkownika  (newversion)
+	Zadanie 2 - edycja
+	Zadanie 2 - edycja
+	Zadanie 3 - edycja (mytest1)
+	Zadanie 4 - edycja (mytest1) <--
+--> jest wszystko <--
+git log
+git stash clear
+
+Zadanie 5. 
+
+--> utworenie klucza <--
+ssh-keygen -t rsa -b -C krzysztof.magda@outlook.com
+eval $(ssh-agent -s)
+ssh-add ~/.ssh/id_rsa
+ssh -T git@github.com
+
+--> klonowanie repo <--
+git clone git@github.com:TheCodingBichon/Repo1.git
+cd Repo1
+touch one.txt two.txt three.txt
+git add .
+git commit -m "pliki txt z mojego lokalnego komputera"
+
+Zadanie 6.
+
+git pull
+git merge
+git push
+--> pliki zaktualizowane na serwerze <--
+
+touch .gitignore
+--> modyfikacja .gitignore <--
+touch moj_program.c (plik readme już istniał)
+--> modtfikacja readme <--
+git add . (śledzone jest .gitignore readme.md moj_program.c - ponieważ są to pliki utworzone lub zmodyfikowane lokalnie a pozostałe zostały wykluczone przez .gitignore))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
